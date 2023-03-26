@@ -71,7 +71,7 @@ class _KBHit:
 
     def set_normal_term(self) -> None:
         """Resets to normal terminal.  On Windows this is a no-op."""
-        if sys.platform == "win32":
+        if sys.platform != "win32":
             termios.tcsetattr(self.fd, termios.TCSAFLUSH, self.old_term)
 
     def getch(self) -> str:
